@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/css/bootstrap.css' />
-    <link rel='stylesheet' href='/css/bootstrap-grid.css' />
-    <link rel='stylesheet' href='/css/bootstrap-reboot.css' />
+    <title>PiPot</title>
+    {% load static %}
+    <link rel='stylesheet' href='{% static "/css/bootstrap.css" %}' />
+    <link rel='stylesheet' href='{% static "/css/bootstrap-grid.css" %}' />
+    <link rel='stylesheet' href='{% static "/css/bootstrap-reboot.css" %}' />
   </head>
   <body>
     <nav class="navbar navbar-dark bg-dark navbar-expand">
@@ -32,13 +33,14 @@
       </tr>
       </thead>
       <tbody>
-      <% users.forEach(function(user) { %>
-        <tr>
-          <th scope="row">1</th>
-          <td><%=user.name%></td>
-          <td><%=user.password%></td>
-        </tr>
-      <% }); %>
+        {% for user in users %}
+          <tr>
+            <th scope="row">#</th>
+            <td>{{ user.mac }}</td>
+            <td>nothing</td>
+          </tr>
+        {% endfor %}
+
       </tbody>
     </table>
 

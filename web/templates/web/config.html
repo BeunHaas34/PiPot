@@ -26,29 +26,31 @@
     </nav>
     <div class="container">
       <form method="post" action="/config">
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Save Passwords</label>
-          <select class="form-control" name="save-password">
-            <option>False</option>
-            <option>True</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Show Passwords</label>
-          <select class="form-control" name="show-password">
-            <option>False</option>
-            <option>True</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Select Network</label>
-          <select class="form-control" name="network">
-            <% networks.forEach(function(network) { %>
-              <option><%=network%></option>
-            <% }); %>
-          </select>
-        </div>
-
+        {% csrf_token %}
+        {{ form }}
+{#        <div class="form-group">#}
+{#          <label for="exampleFormControlSelect1">Save Passwords</label>#}
+{#          <select class="form-control" name="save-password">#}
+{#            <option>False</option>#}
+{#            <option>True</option>#}
+{#          </select>#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#          <label for="exampleFormControlSelect1">Show Passwords</label>#}
+{#          <select for="{{ form.show_password }}" class="form-control" name="show-password">#}
+{#            <option>False</option>#}
+{#            <option>True</option>#}
+{#          </select>#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#          <label for="exampleFormControlSelect1">Select Network</label>#}
+{#          <select class="form-control" name="network">#}
+{#            {% for network in networks %}#}
+{#              <option>{{ network.ssid }}</option>#}
+{#            {% endfor %}#}
+{#          </select>#}
+{#        </div>#}
+{##}
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
