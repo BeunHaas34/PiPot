@@ -6,4 +6,5 @@ def getNetworks():
     finalnetworks = []
     for ssid in ssids:
         finalnetworks.append((ssid, ssid))
+    print(ssids)
     return ssids
