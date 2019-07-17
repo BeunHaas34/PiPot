@@ -22,8 +22,6 @@ def config(request):
             return render(request, 'web/config.html')
     else:
         form = ConfigForm()
-
-        networks = retrieveNetworks()
         return render(request, 'web/config.html', {'form': form, 'networks': networks})
 
 
