@@ -7,10 +7,9 @@ def getNetworks():
     ssids = list(map(lambda x: x.ssid, networks))
     finalnetworks = []
     for ssid in ssids:
-        finalnetworks.append((ssid, ssids.index(ssid)))
-    ssids = [("1", 1), ("2", 2)]
-    print(ssids)
-    return ssids
+        tuple = (ssids.index(ssid), ssid)
+        finalnetworks.append(tuple)
+    return finalnetworks
 
 
 def test():
