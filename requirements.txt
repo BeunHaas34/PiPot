@@ -3,5 +3,4 @@ wifi==0.3.8
 channels==2.2.0
 daphne==2.3.0
 twisted==19.2.1
-pypiwin32==223
 asgiref==3.1.4
