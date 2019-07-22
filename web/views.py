@@ -9,10 +9,9 @@ def index(request):
     return render(request, 'web/index.html')
 
 def table(request):
-    return render(request, 'web/table.html', {'users': [user("24-8D-76-FD-72-18"), user('2F-EB-B9-5D-B6-DF')]})
+    return render(request, 'web/devices.html', {'users': [user("24-8D-76-FD-72-18"), user('2F-EB-B9-5D-B6-DF')]})
 
 def config(request):
-
     if request.method == 'POST':
         form = ConfigForm(request.POST)
         if form.is_valid():
