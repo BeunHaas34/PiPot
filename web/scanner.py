@@ -1,5 +1,7 @@
 import subprocess, sys, re
 import threading
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 command = '/home/pi/hostapd-mana/hostapd/hostapd /home/pi/hostapd-mana/hostapd/hostapd.conf'
 
@@ -26,4 +28,7 @@ def check(message):
         mac_search = re.search(regex, message, re.IGNORECASE)
         if mac_search:
             mac = mac_search.group(2)
+
+            channel_layer = get_channel_layer()
+            async_to_sync(channel_layer.group_send)('stream', {'message': mac})
             print(mac)
