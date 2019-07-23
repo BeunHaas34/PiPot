@@ -8,7 +8,7 @@ def capture(cmd=command):
 
     while True:
         out = capture_process.stdout.readline()
-        if out == '' and process.poll() != None:
+        if out == '' and capture_process.poll() != None:
             break
         if out != '':
             message = out.decode("utf-8")
@@ -17,7 +17,3 @@ def capture(cmd=command):
 def check(message):
     if 'associated' in message:
         print(message)
-
-
-
-capture()
