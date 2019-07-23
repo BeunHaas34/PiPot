@@ -18,8 +18,12 @@ def runCapture(cmd=command):
             break
         if out != '':
             message = out.decode("utf-8")
-            check(message)
+            check(message.rstrip())
 
 def check(message):
     if 'associated' in message and 'disassociated' not in message:
-        print(message)
+        regex = '(.*)([a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2})(.*)'
+        mac_search = re.search(regex, message, re.IGNORECASE)
+        if mac_search:
+            mac = mac_search.group(2)
+            print(mac)
