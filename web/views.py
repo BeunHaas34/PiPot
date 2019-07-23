@@ -19,7 +19,7 @@ def config(request):
             print(form.cleaned_data['network'])
             saveConfig(form.cleaned_data['network'])
 
-            return render(request, 'web/config.html', {'form': form})
+            return render(request, 'web/devices.html', {'users': []})
     else:
         form = ConfigForm()
         return render(request, 'web/config.html', {'form': form})
