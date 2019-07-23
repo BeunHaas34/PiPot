@@ -3,11 +3,11 @@ import threading
 
 command = '/home/pi/hostapd-mana/hostapd/hostapd /home/pi/hostapd-mana/hostapd/hostapd.conf'
 
-def capture(cmd=command):
-    x = threading.Thread(target=runCapture, args=(cmd))
+def capture():
+    x = threading.Thread(target=runCapture)
     x.start()
 
-def runCapture(cmd):
+def runCapture(cmd=command):
     capture_process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
 
     while True:
