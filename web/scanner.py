@@ -21,6 +21,5 @@ def runCapture(cmd=command):
             check(message)
 
 def check(message):
-    print('Function called: scanner.py/check()')
-    if 'associated' in message:
+    if 'associated' in message and 'disassociated' not in message:
         print(message)
