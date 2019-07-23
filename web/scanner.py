@@ -30,5 +30,5 @@ def check(message):
             mac = mac_search.group(2)
 
             channel_layer = get_channel_layer()
-            async_to_sync(channel_layer.group_send)("stream", {"message": str(mac)})
+            async_to_sync(channel_layer.group_send)("stream", {'type': 'stream_message', "message": str(mac)})
             print(mac)
