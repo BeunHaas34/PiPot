@@ -4,10 +4,12 @@ import threading
 command = '/home/pi/hostapd-mana/hostapd/hostapd /home/pi/hostapd-mana/hostapd/hostapd.conf'
 
 def capture():
+    print('Function called: scanner.py/capture()')
     x = threading.Thread(target=runCapture)
     x.start()
 
 def runCapture(cmd=command):
+    print('Function called: scanner.py/runcapture()')
     capture_process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
 
     while True:
@@ -19,5 +21,6 @@ def runCapture(cmd=command):
             check(message)
 
 def check(message):
+    print('Function called: scanner.py/check()')
     if 'associated' in message:
         print(message)
