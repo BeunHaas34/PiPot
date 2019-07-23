@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from web.models import network, user
 from .forms import ConfigForm
-
+from web.configuration import saveConfig
 
 def index(request):
     return render(request, 'web/index.html')
@@ -15,10 +15,11 @@ def config(request):
     if request.method == 'POST':
         form = ConfigForm(request.POST)
         if form.is_valid():
-            print(form.cleaned_data['save_password'])
-            print(form.cleaned_data['show_password'])
+
             print(form.cleaned_data['network'])
-            return render(request, 'web/config.html')
+            saveConfig(form.cleaned_data['network'])
+
+            return render(request, 'web/config.html', {'form': form})
     else:
         form = ConfigForm()
         return render(request, 'web/config.html', {'form': form})

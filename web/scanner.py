@@ -1,5 +1,6 @@
 import subprocess, sys, re
 
+
 command = '/home/pi/hostapd-mana/hostapd/hostapd /home/pi/hostapd-mana/hostapd/hostapd.conf'
 
 def capture(cmd=command):
