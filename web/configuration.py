@@ -1,5 +1,6 @@
 import fileinput, os
 from shutil import copyfile
+from web.scanner import capture
 
 text_to_search = "<<NETWORKNAME>>"
 sourceHostapd = "/home/pi/hostapd-mana/hostapd.conf"
@@ -24,3 +25,5 @@ def saveConfig(networkName):
     # Write the file out again
     with open(targetHostapd, 'w') as file:
         file.write(filedata)
+
+    capture()

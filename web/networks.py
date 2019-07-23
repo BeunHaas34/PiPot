@@ -1,6 +1,5 @@
 from wifi import Cell, Scheme
 
-
 def getNetworks():
     # networks = list(Cell.all('wlan0'))
     networks = test()
