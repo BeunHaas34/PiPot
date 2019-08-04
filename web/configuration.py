@@ -3,7 +3,7 @@ from shutil import copyfile
 from web.scanner import capture
 
 text_to_search = "<<NETWORKNAME>>"
-sourceHostapd = "/home/pi/hostapd-mana/hostapd.conf"
+sourceHostapd = "../static/hostapd.conf"
 targetHostapd = "/home/pi/hostapd-mana/hostapd/hostapd.conf"
 
 def saveConfig(networkName):
