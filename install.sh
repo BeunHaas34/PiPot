@@ -3,44 +3,25 @@
 echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
 sudo sysctl -p
 
-# Check if Python3 is installed
-if ! hash python3 || ! hash pip3 || ! hash venv ; then
-    echo "Installing Python3"
-    sudo apt-get update
-    sudo apt-get install python3 python3-pip python3-venv
-else
-    echo "Python3 is installed"
-fi
+echo "APT installing dependencies"
+sudo apt-get --yes install build-essential git libnl-genl-3-dev libssl-dev python3 python3-pip python3-venv
 
-# Check is Hostapd is installed
+echo "installing hostapd"
+git clone https://github.com/sensepost/hostapd-mana
+cd hostapd-mana
+make -C hostapd
+cd ..
 
-if [ ! -f "./hostapd-mana/hostapd/hostapd" ] ; then
-    echo "Installing hostapd"
-    sudo apt-get update
-    sudo apt-get --yes install build-essential git libnl-genl-3-dev libssl-dev
-    git clone https://github.com/sensepost/hostapd-mana
-    cd hostapd-mana
-    make -C hostapd
-    cd ..
-else
-    echo "Hostapd is installed"
-fi
+echo "Installing PiPot"
+# TODO Change branch
+git clone https://github.com/TheHell34/PiPot.git -b develop PiPot
+cd PiPot
+echo "Creating venv"
+python3 -m venv venv
+echo "pip install"
+sudo ./venv/bin/pip3 install -r requirements.txt
 
-# Check if PiPot is installed
-if [ ! -d "PiPot" ]; then
-    echo "Installing PiPot"
-    # TODO Change branch
-    git clone https://github.com/TheHell34/PiPot.git -b develop PiPot
-    cd PiPot
-    echo "Creating venv"
-    python3 -m venv venv
-    echo "pip install"
-    sudo ./venv/bin/pip3 install -r requirements.txt
-else
-    echo "PiPot is installed"
-    cd PiPot
-fi
-
-sudo python3 manage.py runserver
+sudo chmod +x run.sh
+sudo ./run.sh
 
 
