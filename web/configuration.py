@@ -1,10 +1,10 @@
 import fileinput, os
 from shutil import copyfile
 from web.scanner import capture
-from PiPot.settings import STATIC_ROOT
+from PiPot.settings import STATICFILES_DIRS
 
 text_to_search = "<<NETWORKNAME>>"
-sourceHostapd = os.path.join(STATIC_ROOT, 'hostapd.conf')
+sourceHostapd = os.path.join(STATICFILES_DIRS[0], 'hostapd.conf')
 targetHostapd = "/home/pi/hostapd-mana/hostapd/hostapd.conf"
 
 def saveConfig(networkName):
