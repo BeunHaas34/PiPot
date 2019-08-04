@@ -4,10 +4,10 @@ echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
 sudo sysctl -p
 
 # Check if Python3 is installed
-if ! hash python3 && ! hash pip3 ; then
+if ! hash python3 || ! hash pip3 || ! hash venv ; then
     echo "Installing Python3"
     sudo apt-get update
-    sudo apt-get install python3 python3-pip
+    sudo apt-get install python3 python3-pip python3-venv
 else
     echo "Python3 is installed"
 fi
@@ -21,6 +21,7 @@ if [ ! -f "./hostapd-mana/hostapd/hostapd" ] ; then
     git clone https://github.com/sensepost/hostapd-mana
     cd hostapd-mana
     make -C hostapd
+    cd ..
 else
     echo "Hostapd is installed"
 fi
