@@ -12,6 +12,7 @@ def saveConfig(networkName):
       os.remove(targetHostapd)
 
     if os.path.exists(sourceHostapd):
+        print("Warn! No source hostapd.conf file found in '"+ sourceHostapd +"'")
         copyfile(sourceHostapd, targetHostapd)
     else:
         return False
