@@ -16,7 +16,7 @@ fi
 
 if [ ! -f "./hostapd-mana/hostapd/hostapd" ] ; then
     echo "Installing hostapd"
-    sudo apt-get install build-essential libssl-dev libnl-dev libnl-genl-3-dev libssl1.0-dev -y
+    sudo apt-get install build-essential libssl-dev libnl-dev libnl-genl-3-dev -y
     git clone https://github.com/sensepost/hostapd-mana
     cd hostapd-mana
     make -C hostapd
