@@ -1,9 +1,10 @@
 import fileinput, os
 from shutil import copyfile
 from web.scanner import capture
+from PiPot.settings import STATIC_ROOT
 
 text_to_search = "<<NETWORKNAME>>"
-sourceHostapd = "../static/hostapd.conf"
+sourceHostapd = os.path.join(STATIC_ROOT, 'hostapd.conf')
 targetHostapd = "/home/pi/hostapd-mana/hostapd/hostapd.conf"
 
 def saveConfig(networkName):
@@ -11,8 +12,10 @@ def saveConfig(networkName):
       os.remove(targetHostapd)
 
     if os.path.exists(sourceHostapd):
+        
         copyfile(sourceHostapd, targetHostapd)
     else:
+        print("Warn! No source hostapd.conf file found in '"+ sourceHostapd +"'")
         return False
 
     # Read in the file
