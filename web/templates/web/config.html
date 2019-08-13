@@ -16,7 +16,7 @@
             <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/table">Table</a>
+            <a class="nav-link" href="/devices">Devices</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="/config">Config <span class="sr-only">(current)</span></a>
@@ -28,29 +28,7 @@
       <form method="post" action="/config">
         {% csrf_token %}
         {{ form }}
-{#        <div class="form-group">#}
-{#          <label for="exampleFormControlSelect1">Save Passwords</label>#}
-{#          <select class="form-control" name="save-password">#}
-{#            <option>False</option>#}
-{#            <option>True</option>#}
-{#          </select>#}
-{#        </div>#}
-{#        <div class="form-group">#}
-{#          <label for="exampleFormControlSelect1">Show Passwords</label>#}
-{#          <select for="{{ form.show_password }}" class="form-control" name="show-password">#}
-{#            <option>False</option>#}
-{#            <option>True</option>#}
-{#          </select>#}
-{#        </div>#}
-{#        <div class="form-group">#}
-{#          <label for="exampleFormControlSelect1">Select Network</label>#}
-{#          <select class="form-control" name="network">#}
-{#            {% for network in networks %}#}
-{#              <option>{{ network.ssid }}</option>#}
-{#            {% endfor %}#}
-{#          </select>#}
-{#        </div>#}
-{##}
+        <p></p>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>

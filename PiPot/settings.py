@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'web',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+ASGI_APPLICATION = "PiPot.routing.application"
+
+CHANNEL_LAYERS={
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+     }
+}
