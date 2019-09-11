@@ -1,11 +1,7 @@
 # PiPot
 
-#Requirements 
-`Python 3`
-
 #Installation 
-* Create a virtualenv
-* Run `pip install -r requirements.txt`
+run "curl -Ls https://raw.githubusercontent.com/TheHell34/PiPot/master/install.sh | sudo sh"
 
 #Execute
-`python manage.py runserver`
+./run.sh
