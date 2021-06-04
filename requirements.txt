@@ -1,4 +1,4 @@
-Django==2.2.4
+Django==2.2.21
 wifi==0.3.8
 channels==2.2.0
 daphne==2.3.0
